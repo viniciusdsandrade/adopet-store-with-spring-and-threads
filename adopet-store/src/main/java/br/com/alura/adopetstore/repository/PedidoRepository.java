@@ -4,11 +4,13 @@ import br.com.alura.adopetstore.dto.EstatisticasVenda;
 import br.com.alura.adopetstore.model.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+@Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     List<Pedido> findPedidoByData(LocalDate now);

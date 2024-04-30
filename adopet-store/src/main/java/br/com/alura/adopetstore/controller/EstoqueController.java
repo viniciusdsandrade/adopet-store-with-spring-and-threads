@@ -19,8 +19,11 @@ import java.util.List;
 @RequestMapping("admin/estoques")
 public class EstoqueController {
 
-    @Autowired
-    private EstoqueService service;
+    private final EstoqueService service;
+
+    public EstoqueController(EstoqueService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public ResponseEntity<List<EstoqueDTO>> listar(){

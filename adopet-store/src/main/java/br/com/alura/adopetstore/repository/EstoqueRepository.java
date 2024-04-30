@@ -4,9 +4,11 @@ import br.com.alura.adopetstore.model.Estoque;
 import br.com.alura.adopetstore.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface EstoqueRepository extends JpaRepository<Estoque, Long> {
     Estoque findByProdutoId(Long idProduto);
 

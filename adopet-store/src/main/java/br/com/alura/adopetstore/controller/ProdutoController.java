@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("admin/produtos")
 public class ProdutoController {
 
-    @Autowired
-    private ProdutoService service;
+    private final ProdutoService service;
+
+    public ProdutoController(ProdutoService service) {
+        this.service = service;
+    }
 
     @PostMapping
     @Transactional

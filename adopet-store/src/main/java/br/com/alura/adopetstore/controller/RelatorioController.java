@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("admin/relatorios")
 public class RelatorioController {
-    @Autowired
-    private RelatorioService service;
+
+    private final RelatorioService service;
+
+    public RelatorioController(RelatorioService service) {
+        this.service = service;
+    }
 
     @GetMapping("estoque")
     public ResponseEntity<RelatorioEstoque> obterInfoEstoque(){
