@@ -14,14 +14,18 @@ import java.util.stream.Collectors;
 
 @Service
 public class RelatorioService {
-    @Autowired
-    private ProdutoRepository produtoRepository;
 
-    @Autowired
-    private EstoqueRepository estoqueRepository;
+    private final ProdutoRepository produtoRepository;
+    private final EstoqueRepository estoqueRepository;
+    private final PedidoRepository pedidoRepository;
 
-    @Autowired
-    private PedidoRepository pedidoRepository;
+    public RelatorioService(ProdutoRepository produtoRepository,
+                            EstoqueRepository estoqueRepository,
+                            PedidoRepository pedidoRepository) {
+        this.produtoRepository = produtoRepository;
+        this.estoqueRepository = estoqueRepository;
+        this.pedidoRepository = pedidoRepository;
+    }
 
     public RelatorioEstoque infoEstoque(){
         var produtosSemEstoque = estoqueRepository.produtosComEstoqueZerado()

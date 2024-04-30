@@ -16,11 +16,14 @@ import java.util.List;
 
 @Service
 public class ProdutoService {
-    @Autowired
-    private ProdutoRepository repository;
 
-    @Autowired
-    private EstoqueRepository estoqueRepository;
+    private final ProdutoRepository repository;
+    private final EstoqueRepository estoqueRepository;
+
+    public ProdutoService(ProdutoRepository repository, EstoqueRepository estoqueRepository) {
+        this.repository = repository;
+        this.estoqueRepository = estoqueRepository;
+    }
 
     public ProdutoDTO cadastrar(CadastroProdutoDTO dto){
         var jaCadastrado = repository.existsByNomeIgnoringCase(dto.nome());

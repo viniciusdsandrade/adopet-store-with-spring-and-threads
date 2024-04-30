@@ -10,10 +10,12 @@ import java.util.List;
 
 @Repository
 public interface EstoqueRepository extends JpaRepository<Estoque, Long> {
+
     Estoque findByProdutoId(Long idProduto);
 
     @Query("SELECT e FROM Estoque e WHERE e.produto.ativo=true")
     List<Estoque> findAll();
+
     @Query("SELECT e.produto FROM Estoque e WHERE e.quantidade = 0")
     List<Produto> produtosComEstoqueZerado();
 }

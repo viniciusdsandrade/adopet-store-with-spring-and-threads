@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
+
      boolean existsByNomeIgnoringCase(String nome);
+
      @Query("SELECT p FROM Produto p WHERE p.ativo=true")
      Page<Produto> findAll(Pageable pageable);
 }

@@ -21,6 +21,7 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
             WHERE p.data = :data
             """)
     BigDecimal faturamentoTotalDoDia(LocalDate data);
+
     @Query("""
         SELECT NEW br.com.alura.adopetstore.dto.EstatisticasVenda(
             prod.categoria,

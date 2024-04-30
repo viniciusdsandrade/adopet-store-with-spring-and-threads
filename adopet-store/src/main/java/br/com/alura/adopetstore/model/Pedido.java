@@ -1,6 +1,5 @@
 package br.com.alura.adopetstore.model;
 
-import br.com.alura.adopetstore.dto.CadastroPedidoDTO;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

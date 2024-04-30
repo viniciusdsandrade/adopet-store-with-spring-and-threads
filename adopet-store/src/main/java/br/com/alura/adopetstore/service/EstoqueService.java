@@ -12,8 +12,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class EstoqueService {
-    @Autowired
-    private EstoqueRepository repository;
+
+    private final EstoqueRepository repository;
+
+    public EstoqueService(EstoqueRepository repository) {
+        this.repository = repository;
+    }
 
     public List<EstoqueDTO> listar(){
         return repository.findAll()

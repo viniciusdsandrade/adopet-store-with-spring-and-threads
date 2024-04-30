@@ -17,14 +17,16 @@ import java.util.ArrayList;
 
 @Service
 public class PedidoService {
-    @Autowired
-    private PedidoRepository repository;
 
-    @Autowired
-    private ProdutoRepository produtoRepository;
+    private final PedidoRepository repository;
+    private final ProdutoRepository produtoRepository;
+    private final EstoqueRepository estoqueRepository;
 
-    @Autowired
-    private EstoqueRepository estoqueRepository;
+    public PedidoService(PedidoRepository repository, ProdutoRepository produtoRepository, EstoqueRepository estoqueRepository) {
+        this.repository = repository;
+        this.produtoRepository = produtoRepository;
+        this.estoqueRepository = estoqueRepository;
+    }
 
     @Transactional
     public PedidoDTO cadastrar(CadastroPedidoDTO dto, Usuario usuario) {

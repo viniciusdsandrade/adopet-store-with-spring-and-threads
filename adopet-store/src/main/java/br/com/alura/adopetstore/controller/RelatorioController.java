@@ -5,12 +5,14 @@ import br.com.alura.adopetstore.dto.RelatorioFaturamento;
 import br.com.alura.adopetstore.service.RelatorioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("admin/relatorios")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RelatorioController {
 
     private final RelatorioService service;
